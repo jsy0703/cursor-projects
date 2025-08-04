@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor Projects Collection - 유용한 도구들의 모음</title>
+    <link rel="stylesheet" href="homepage.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-code"></i>
+                <span>Cursor Projects</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">홈</a></li>
+                <li><a href="#projects" class="nav-link">프로젝트</a></li>
+                <li><a href="#about" class="nav-link">소개</a></li>
+                <li><a href="#contact" class="nav-link">연락처</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 메인 섹션 -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    유용한 도구들의 <span class="gradient-text">컬렉션</span>
+                </h1>
+                <p class="hero-description">
+                    스톱워치, 로또 번호 생성기, 자동 스케줄러 등 다양한 유용한 도구들을 한 곳에서 만나보세요.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        프로젝트 보기
+                    </a>
+                    <a href="https://github.com/SaTansworld/cursor-projects" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <i class="fas fa-clock"></i>
+                    <span>스톱워치</span>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-dice"></i>
+                    <span>로또 생성기</span>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>스케줄러</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 프로젝트 섹션 -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">프로젝트 소개</h2>
+            <div class="projects-grid">
+                <!-- 스톱워치 프로젝트 -->
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="project-title">스톱워치 애플리케이션</h3>
+                    <p class="project-description">
+                        아름답고 기능적인 웹 기반 스톱워치입니다. 랩 기능과 키보드 단축키를 지원합니다.
+                    </p>
+                    <div class="project-features">
+                        <span class="feature-tag">정확한 시간 측정</span>
+                        <span class="feature-tag">랩 기능</span>
+                        <span class="feature-tag">키보드 단축키</span>
+                        <span class="feature-tag">반응형 디자인</span>
+                    </div>
+                    <div class="project-buttons">
+                        <a href="stopwatch.html" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-play"></i>
+                            실행하기
+                        </a>
+                        <a href="#" class="btn btn-outline" onclick="showProjectDetails('stopwatch')">
+                            <i class="fas fa-info-circle"></i>
+                            자세히 보기
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 로또 생성기 프로젝트 -->
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-dice"></i>
+                    </div>
+                    <h3 class="project-title">로또 번호 생성기</h3>
+                    <p class="project-description">
+                        Python으로 만든 로또 번호 생성기입니다. 1-45 범위에서 6개 번호를 무작위로 생성합니다.
+                    </p>
+                    <div class="project-features">
+                        <span class="feature-tag">무작위 생성</span>
+                        <span class="feature-tag">중복 방지</span>
+                        <span class="feature-tag">정렬 출력</span>
+                        <span class="feature-tag">Python</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary" onclick="generateLotto()">
+                            <i class="fas fa-magic"></i>
+                            번호 생성
+                        </button>
+                        <a href="#" class="btn btn-outline" onclick="showProjectDetails('lotto')">
+                            <i class="fas fa-info-circle"></i>
+                            자세히 보기
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 스케줄러 프로젝트 -->
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="project-title">자동 스케줄러</h3>
+                    <p class="project-description">
+                        특정 시간에 자동으로 프로그램을 실행하는 스케줄러입니다. 다양한 작업을 자동화할 수 있습니다.
+                    </p>
+                    <div class="project-features">
+                        <span class="feature-tag">자동 실행</span>
+                        <span class="feature-tag">스케줄 관리</span>
+                        <span class="feature-tag">로그 기록</span>
+                        <span class="feature-tag">사용자 정의</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary" onclick="showSchedulerInfo()">
+                            <i class="fas fa-cog"></i>
+                            설정 보기
+                        </button>
+                        <a href="#" class="btn btn-outline" onclick="showProjectDetails('scheduler')">
+                            <i class="fas fa-info-circle"></i>
+                            자세히 보기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 스케줄러 정보 모달 -->
+    <div id="schedulerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>자동 스케줄러 설정</h2>
+            <div class="schedule-info">
+                <h3>기본 스케줄</h3>
+                <ul>
+                    <li><strong>매일 09:00</strong> - 로또 번호 생성</li>
+                    <li><strong>매일 12:00</strong> - 점심 알림</li>
+                    <li><strong>매일 14:00</strong> - 스톱워치 열기</li>
+                    <li><strong>매주 월요일 08:00</strong> - 시스템 백업</li>
+                    <li><strong>30분마다</strong> - 시스템 상태 체크</li>
+                </ul>
+                <div class="code-example">
+                    <h4>실행 방법:</h4>
+                    <code>python run_scheduler.py</code>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 프로젝트 상세 정보 모달 -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="projectDetails"></div>
+        </div>
+    </div>
+
+    <!-- 로또 결과 표시 -->
+    <div id="lottoResult" class="lotto-result">
+        <div class="lotto-numbers">
+            <span class="lotto-number"></span>
+            <span class="lotto-number"></span>
+            <span class="lotto-number"></span>
+            <span class="lotto-number"></span>
+            <span class="lotto-number"></span>
+            <span class="lotto-number"></span>
+        </div>
+        <button class="btn btn-primary" onclick="generateLotto()">
+            <i class="fas fa-redo"></i>
+            다시 생성
+        </button>
+    </div>
+
+    <!-- 소개 섹션 -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">프로젝트 소개</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        이 프로젝트는 다양한 유용한 도구들을 모아놓은 컬렉션입니다. 
+                        웹 개발, 자동화, 유틸리티 등 다양한 분야의 도구들을 포함하고 있습니다.
+                    </p>
+                    <p>
+                        모든 프로젝트는 오픈소스로 제공되며, 자유롭게 사용하고 수정할 수 있습니다.
+                    </p>
+                </div>
+                <div class="tech-stack">
+                    <h3>사용 기술</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Git</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 연락처 섹션 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">연락처</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/SaTansworld/cursor-projects" target="_blank">
+                            GitHub 저장소
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>wjdcksals115@naver.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Cursor Projects Collection. Made with ❤️ by wjdtm</p>
+        </div>
+    </footer>
+
+    <script src="homepage.js"></script>
+</body>
+</html> 
