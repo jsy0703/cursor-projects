@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    max-width: 500px;
+    width: 90%;
+}
+
+.stopwatch h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 300;
+}
+
+.display {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 30px 0;
+    font-family: 'Courier New', monospace;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    min-width: 100px;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.start {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+}
+
+.start:hover:not(:disabled) {
+    background: linear-gradient(45deg, #45a049, #4CAF50);
+}
+
+.stop {
+    background: linear-gradient(45deg, #f44336, #d32f2f);
+    color: white;
+}
+
+.stop:hover:not(:disabled) {
+    background: linear-gradient(45deg, #d32f2f, #f44336);
+}
+
+.reset {
+    background: linear-gradient(45deg, #ff9800, #f57c00);
+    color: white;
+}
+
+.reset:hover:not(:disabled) {
+    background: linear-gradient(45deg, #f57c00, #ff9800);
+}
+
+.lap {
+    background: linear-gradient(45deg, #2196F3, #1976D2);
+    color: white;
+}
+
+.lap:hover:not(:disabled) {
+    background: linear-gradient(45deg, #1976D2, #2196F3);
+}
+
+.laps {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.laps h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+#lapsList {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.lap-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 15px;
+    margin: 5px 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.lap-number {
+    font-weight: bold;
+    color: #666;
+}
+
+.lap-time {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .display {
+        font-size: 2.5em;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 200px;
+    }
+}
+
+/* 애니메이션 */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.display.running {
+    animation: pulse 1s infinite;
+} 
