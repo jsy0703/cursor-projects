@@ -19,7 +19,9 @@ jobs:
 
       - name: Set execute permissions
         run: |
-          chmod +x "새 폴더/nally_mcpo/mac/"*.sh
+          echo "Listing repo files for debug:" && ls -la
+          echo "Listing mac scripts dir:" && ls -la "./새 폴더/nally_mcpo/mac" || true
+          find "./새 폴더/nally_mcpo/mac" -type f -name "*.sh" -print0 | xargs -0 chmod +x || true
 
       - name: Python flow - setup
         run: |
