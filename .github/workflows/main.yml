@@ -1,0 +1,49 @@
+name: mac-test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-mac:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show runner info
+        run: |
+          sw_vers
+          uname -a
+          sysctl machdep.cpu.brand_string || true
+
+      - name: Set execute permissions
+        run: |
+          chmod +x "새 폴더/nally_mcpo/mac/"*.sh
+
+      - name: Python flow - setup
+        run: |
+          ./새\ 폴더/nally_mcpo/mac/setup_mcpo_python_mac.sh
+
+      - name: Python flow - start/stop smoke test
+        run: |
+          set -e
+          ./새\ 폴더/nally_mcpo/mac/start_mcpo_server_mac.sh &
+          SERVER_PID=$!
+          sleep 8
+          # try to hit localhost quickly (optional)
+          curl -fsS http://localhost:8000/ || true
+          kill ${SERVER_PID} || true
+          pkill -f mcpo || true
+
+      # NOTE: Docker on macOS runners may not be available by default.
+      # The following step tries Docker flow but will not fail the job if unavailable.
+      - name: Docker flow - setup (best-effort)
+        run: |
+          ./새\ 폴더/nally_mcpo/mac/setup_mcpo_docker_mac.sh || true
+
+      - name: Docker flow - start/stop smoke test (best-effort)
+        run: |
+          ./새\ 폴더/nally_mcpo/mac/start_mcpo_docker_mac.sh || true
+
+
